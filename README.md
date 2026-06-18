@@ -1,4 +1,4 @@
-# WanderStay 🧳
+# WanderStay 
 
 WanderStay is a full-stack web application inspired by Airbnb that allows users to explore, create, edit, and manage travel accommodation listings. The platform provides an intuitive interface for browsing destinations and viewing detailed property information.
 
@@ -30,47 +30,10 @@ WanderStay is a full-stack web application inspired by Airbnb that allows users 
   * MongoDB
   * Mongoose
 
-## Project Structure
-
-WanderStay/
-│
-├── init/
-│   ├── data.js
-│   └── index.js
-│
-├── models/
-│   └── listing.js
-│
-├── views/
-│   ├── listingsrelated/
-│   │   ├── index.ejs
-│   │   ├── show.ejs
-│   │   ├── new.ejs
-│   │   └── edit.ejs
-│   │
-│   ├── layouts/
-│   │   └── boilerplate.ejs
-│   │
-│   └── includes/
-│       ├── navbar.ejs
-│       └── footer.ejs
-│
-├── public/
-│   ├── css/
-│   │   └── style.css
-│   │
-│   └── js/
-│       └── script.js
-│
-├── app.js
-├── package.json
-├── package-lock.json
-└── README.md
-
 ## Installation
 
 1. Clone the repository
-git clone <your-github-repository-link>
+git clone [<your-github-repository-link>](https://github.com/amrita-0403/WanderStay)
 
 2. Navigate to the project folder
 cd WanderStay
@@ -87,13 +50,6 @@ node app.js
 6. Open browser
 http://localhost:8080/listings
 
-
-## Screenshots
-
-Add screenshots of:
-* Listing Details Page
-* Create Listing Form
-* Edit Listing Page
 
 ## Future Enhancements
 
