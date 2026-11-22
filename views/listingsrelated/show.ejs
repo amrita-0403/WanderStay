@@ -1,39 +1,91 @@
 <% layout("/layouts/boilerplate") %>
 <body>
     <div class="row">
-        <div class="col-8 offset-4 ">
+        <div class="col-8 offset-3 ">
             <h3><%=listingdata.title%></h3>
 
-    <div class="card col-6 ">
-        <img src="<%=listingdata.image.url%>" class="card-img-top show-img" alt="...">
-  <div class="card-body">
-    <br>
-    <p class="card-text">
+         <div class="card col-6 ">
+            <img src="<%=listingdata.image.url%>" class="card-img-top show-img" alt="...">
+            <div class="card-body">
+            <br>
+             <p class="card-text">
     
-        <b><%=listingdata.title%>:</b><br>
-        <%=listingdata.description%><br>
-        &#8377;<%=Number(listingdata.price).toLocaleString("en-In")%><br> <!--for commas-->
-        <%=listingdata.location%><br>
-        <%=listingdata.country%><br>
+            <b><%=listingdata.title%>:</b><br>
+            <%=listingdata.description%><br>
+            &#8377;<%=Number(listingdata.price).toLocaleString("en-In")%><br> <!--for commas-->
+            <%=listingdata.location%><br>
+            <%=listingdata.country%><br>
 
-        </p>
+            </p>
    
-  </div>
-    </div>
+          </div>
+        </div>
 
     
-    <br>
-   <div class="btns">
-    <a href="/listings/<%=listingdata._id%>/edit" class="btn btn-dark">
-        Edit
-    </a>
+        <br>
+     <div class="btns">
+        <a href="/listings/<%=listingdata._id%>/edit" class="btn btn-dark">
+            Edit
+        </a>
 
-    <form method="POST" action="/listings/<%=listingdata._id%>?_method=DELETE">
-        <button class="btn btn-danger">Delete</button>
-    </form>
-</div>
-        </div>
+        <form method="POST" action="/listings/<%=listingdata._id%>?_method=DELETE">
+            <button class="btn btn-danger">Delete</button>
+        </form>
+     </div>
+    </div>
     </div>
     <br><br>
+    <hr>
+    <div class="col-8 offset-3 mb-3 ">
+    <h4  >Leave a Review</h4>
+    <form action="/listings/<%=listingdata.id%>/reviews" method="POST">
+    <label for="rating">Rating</label>
+    <input
+    type="range"
+    
+    min="1"
+    max="5"
+    name="review[rating]"
+    class="form-range"
+/>
+
+<textarea
+    class="form-control"
+    rows="10"
+  
+    name="review[comment]"
+></textarea><br><br>
+        <button class="btn btn-success">Submit</button>
+    </div>
+
+    
+</form>
+    
+    </div>
+    <br><br>
+    
+    <div class="col-8 offset-3 mb-3 ">
+    <hr>
+    <h4>All reviews</h4>
+    <div class="row">
+      <% for(review of listingdata.reviews) { %>
+        <div class="card col-6 mb-3"  >
+            <div class="card-body" style="border: 2px solid #acacac;padding: 10px !important">
+                <h5 class="card-title">Ross Geller</h5>
+                <p class="card-text"><%=review.comment%></p>
+                <p class="card-text"><%=review.rating%></p>
+                <form class="mb-3" method="POST" action="/listings/<%=listingdata._id%>/reviews/<%=review._id%>?_method=DELETE" >
+                    <button class="btn btn-sm btn-dark">Delete</button>
+                </form>
+    
+              </div>
+        </div>
+    
+        
+        <%}%>
+
+        </div>
+        
+
     
 </body>
